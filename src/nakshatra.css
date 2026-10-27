@@ -1,0 +1,1289 @@
+/* Reset anything the starter template sets on the page */
+html,
+body,
+#root {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100%;
+  display: block !important;
+  text-align: left !important;
+  background: #070816 !important;
+}
+.app,
+.app *,
+.check,
+.check * {
+  box-sizing: border-box;
+}
+
+.app {
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #f3f1ff;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(ellipse at 15% 0%, #1b1450 0%, transparent 55%),
+    radial-gradient(ellipse at 95% 100%, #3a0f3f 0%, transparent 50%), #070816;
+}
+
+/* ---------- Header ---------- */
+.app .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 14px 22px 8px;
+}
+.app .brand h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #ffe29a, #ff8fb8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.app .tag {
+  color: #a9a6d6;
+  font-size: 13px;
+}
+.app .stats {
+  flex: 1;
+  min-width: 220px;
+  max-width: 360px;
+}
+.app .stats .line {
+  font-size: 13px;
+  color: #cfcdf0;
+  margin-bottom: 6px;
+}
+.app .bar {
+  height: 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+.app .bar > div {
+  height: 100%;
+  background: linear-gradient(90deg, #ffd166, #ff7aa8);
+  transition: width 0.4s;
+}
+
+/* ---------- Auth ---------- */
+.app .auth {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+.app .auth form,
+.app .auth .who {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+.app input[type="email"],
+.app input[type="password"],
+.app input[type="text"],
+.app select {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #f3f1ff;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 14px;
+}
+.app select option {
+  background: #14153a;
+  color: #f3f1ff;
+}
+.app .err {
+  color: #ff9a9a;
+  font-size: 13px;
+  max-width: 420px;
+  text-align: right;
+}
+
+/* ---------- Buttons ---------- */
+.app .btn {
+  display: block;
+  width: 100%;
+  margin: 10px 0 6px;
+  padding: 11px 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  color: #1a1030;
+  background: linear-gradient(90deg, #ffd166, #ff8fb8);
+}
+.app .btn.small {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: 8px 14px;
+  font-size: 14px;
+}
+.app .btn.ghost {
+  color: #ffe29a;
+  background: rgba(255, 209, 102, 0.12);
+  border: 1px solid rgba(255, 209, 102, 0.45);
+}
+.app .btn.locked {
+  color: #9a97c8;
+  background: rgba(255, 255, 255, 0.07);
+  cursor: not-allowed;
+  font-weight: 500;
+}
+.app .btn.glow {
+  animation: glowbtn 1.4s ease-in-out infinite;
+}
+@keyframes glowbtn {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 143, 184, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 143, 184, 0);
+  }
+}
+.app .linkbtn {
+  background: none;
+  border: none;
+  color: #a9a6d6;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+}
+.app .chip-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f3f1ff;
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin: 2px 4px 2px 0;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.app .chip-btn:hover {
+  background: rgba(255, 143, 184, 0.25);
+}
+
+/* ---------- Toolbar ---------- */
+.app .toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 2px 22px 10px;
+  font-size: 13px;
+  color: #cfcdf0;
+}
+.app .toolbar b {
+  color: #ffe29a;
+}
+.app .jobinfo b {
+  color: #ff8fb8;
+}
+.app .note {
+  color: #f5c26b;
+}
+.app .notice {
+  margin: 0 22px 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(245, 194, 107, 0.12);
+  color: #f5c26b;
+  font-size: 13px;
+}
+
+/* ---------- The sky ---------- */
+.app .sky {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  margin: 0 14px 14px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(5, 6, 22, 0.55);
+}
+.app .sky::before,
+.app .sky::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: repeat;
+}
+.app .sky::before {
+  background-image: radial-gradient(1.2px 1.2px at 20px 30px, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(1px 1px at 90px 120px, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 160px 60px, rgba(255, 230, 180, 0.9), transparent),
+    radial-gradient(1px 1px at 230px 180px, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1.2px 1.2px at 300px 90px, rgba(200, 210, 255, 0.8), transparent);
+  background-size: 330px 220px;
+  animation: twinkle 5s ease-in-out infinite alternate;
+}
+.app .sky::after {
+  background-image: radial-gradient(1px 1px at 60px 70px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1.4px 1.4px at 140px 190px, rgba(255, 200, 220, 0.9), transparent),
+    radial-gradient(1px 1px at 250px 40px, rgba(220, 230, 255, 0.8), transparent),
+    radial-gradient(1.2px 1.2px at 340px 150px, rgba(255, 255, 255, 0.7), transparent);
+  background-size: 410px 260px;
+  animation: twinkle 7s ease-in-out 1.5s infinite alternate;
+}
+@keyframes twinkle {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.app .map {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.app .sky .react-flow {
+  background: transparent !important;
+}
+.app .react-flow__node-subject,
+.app .react-flow__node-group {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.app .react-flow__edge-path {
+  stroke-linecap: round;
+}
+.app .edge-lit .react-flow__edge-path {
+  filter: drop-shadow(0 0 4px rgba(255, 200, 90, 0.9));
+}
+.app .center-msg {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 24px;
+  color: #cfcdf0;
+}
+.app .err-box {
+  color: #ffb3b3;
+}
+.app .err-box a {
+  color: #ffe29a;
+}
+
+/* ---------- Subjects (glowing planets with orbit dots) ---------- */
+.app .group-label {
+  width: 200px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.app .planet {
+  position: relative;
+  width: 190px;
+  height: 215px;
+  cursor: pointer;
+}
+.app .orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+  pointer-events: none;
+  transition: box-shadow 0.4s, border-color 0.4s;
+}
+.app .orbit.full {
+  border: 1px solid var(--c);
+  box-shadow: 0 0 12px var(--c), inset 0 0 12px var(--c);
+}
+.app .spin {
+  position: absolute;
+  left: 95px;
+  top: 95px;
+  width: 0;
+  height: 0;
+  animation: spin 90s linear infinite;
+}
+.app .spin.rev {
+  animation-direction: reverse;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.app .dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.app .dot.lit {
+  background: #ffd166;
+  box-shadow: 0 0 8px 2px rgba(255, 200, 80, 0.85);
+}
+.app .core {
+  position: absolute;
+  left: 67px;
+  top: 67px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  background: color-mix(in srgb, var(--c) calc(var(--p) * 0.7%), #0b0d24);
+  border: 2px solid color-mix(in srgb, var(--c) 65%, transparent);
+  box-shadow: 0 0 calc(6px + var(--p) * 0.35px) calc(var(--p) * 0.06px) var(--c);
+  transition: transform 0.2s, box-shadow 0.4s, background 0.4s;
+}
+.app .planet:hover .core {
+  transform: scale(1.1);
+}
+.app .planet.fresh .core {
+  opacity: 0.85;
+}
+.app .planet.sel .core {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}
+.app .planet.mastered .core {
+  background: radial-gradient(circle, #fff3c4 0%, #ffc247 100%);
+  border-color: #ffe29a;
+  box-shadow: 0 0 36px 10px rgba(255, 200, 80, 0.8);
+}
+.app .p-name {
+  position: absolute;
+  left: 0;
+  top: 178px;
+  width: 190px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #f3f1ff;
+  text-shadow: 0 1px 6px #000;
+}
+.app .p-count {
+  position: absolute;
+  left: 0;
+  top: 196px;
+  width: 190px;
+  text-align: center;
+  font-size: 11px;
+  color: #a9a6d6;
+}
+.app .planet.mastered .p-count {
+  color: #ffe29a;
+}
+.app .burst {
+  position: absolute;
+  left: 95px;
+  top: 95px;
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  border-radius: 50%;
+  border: 3px solid #ffe29a;
+  pointer-events: none;
+  animation: burst 1s ease-out forwards;
+}
+@keyframes burst {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+/* put the line endpoints in the middle of each planet */
+.app .planet .react-flow__handle.h {
+  position: absolute !important;
+  left: 95px !important;
+  right: auto !important;
+  top: 95px !important;
+  transform: translate(-50%, -50%) !important;
+  width: 2px;
+  height: 2px;
+  min-width: 0;
+  min-height: 0;
+  opacity: 0;
+  border: none;
+}
+
+/* ---------- Legend and toast ---------- */
+.app .legend {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 3;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 12px;
+  color: #cfcdf0;
+  background: rgba(8, 9, 28, 0.7);
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+.app .dot-sample {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: -1px;
+  background: #ffd166;
+  box-shadow: 0 0 8px rgba(255, 200, 80, 0.9);
+}
+.app .toast {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #1a1030;
+  background: linear-gradient(90deg, #ffd166, #ff8fb8);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+  animation: pop 0.3s ease-out;
+}
+@keyframes pop {
+  from {
+    transform: translate(-50%, -12px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* ---------- Setup check page ---------- */
+.check {
+  min-height: 100vh;
+  padding: 28px 22px;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #f3f1ff;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+.check table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.check td {
+  padding: 8px 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+}
+.check .ok {
+  color: #7ee2a8;
+}
+.check .bad {
+  color: #ff9a9a;
+}
+.check a {
+  color: #ffe29a;
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 700px) {
+  .app .top {
+    padding: 10px 14px 4px;
+  }
+  .app .brand h1 {
+    font-size: 22px;
+  }
+  .app .toolbar {
+    padding: 2px 14px 8px;
+  }
+  .app .sky {
+    margin: 0 8px 8px;
+  }
+  .app .legend span:last-child {
+    display: none;
+  }
+}
+
+/* ---------- Extras ---------- */
+.app .sublevel {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #a9a6d6;
+}
+.app .mastered-box {
+  margin: 10px 0 4px;
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffe29a;
+  background: rgba(255, 209, 102, 0.12);
+  border: 1px solid rgba(255, 209, 102, 0.45);
+}
+
+/* ---------- Split view: a subject opens into 3 stages ---------- */
+.app .focus {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  background: rgba(6, 7, 24, 0.93);
+  animation: reveal 0.7s ease-out both;
+}
+@keyframes reveal {
+  from {
+    clip-path: circle(0px at var(--ox) var(--oy));
+  }
+  to {
+    clip-path: circle(2600px at var(--ox) var(--oy));
+  }
+}
+.app .focus .back {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f3f1ff;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.app .focus .back:hover {
+  background: rgba(255, 143, 184, 0.25);
+}
+.app .f-main {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 22% 1fr;
+  padding-top: 46px;
+}
+.app .f-lines {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 46px;
+  bottom: 0;
+  width: 100%;
+  height: calc(100% - 46px);
+  pointer-events: none;
+  animation: wipe 0.9s 0.3s ease-out both;
+}
+.app .f-lines path {
+  fill: none;
+  stroke: var(--c);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  opacity: 0.65;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 4px var(--c));
+}
+.app .f-lines path.done {
+  stroke: #ffd166;
+  opacity: 1;
+  filter: drop-shadow(0 0 6px #ffc247);
+}
+@keyframes wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+.app .f-planet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px 12px;
+  animation: grow 0.6s 0.15s ease-out both;
+}
+@keyframes grow {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.app .f-ring {
+  width: 132px;
+  height: 132px;
+  padding: 6px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(#ffd166 calc(var(--p, 0) * 1%), rgba(255, 255, 255, 0.14) 0);
+}
+.app .f-core {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 54px;
+  background: color-mix(in srgb, var(--c) calc(var(--p) * 0.7%), #0b0d24);
+  border: 2px solid color-mix(in srgb, var(--c) 70%, transparent);
+  box-shadow: 0 0 calc(10px + var(--p) * 0.5px) var(--c);
+}
+.app .focus.mastered .f-core {
+  background: radial-gradient(circle, #fff3c4, #ffc247);
+  box-shadow: 0 0 40px 12px rgba(255, 200, 80, 0.8);
+}
+.app .f-planet h2 {
+  margin: 12px 0 2px;
+  font-size: 22px;
+}
+.app .f-sub {
+  font-size: 13px;
+  color: #cfcdf0;
+}
+.app .f-desc {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #a9a6d6;
+  max-width: 190px;
+}
+.app .p-hint {
+  font-size: 12px;
+  color: #f5c26b;
+  margin: 8px 0 0;
+}
+.app .mastered-box {
+  margin: 8px 0 0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffe29a;
+  background: rgba(255, 209, 102, 0.12);
+  border: 1px solid rgba(255, 209, 102, 0.45);
+}
+.app .f-lanes {
+  display: grid;
+  grid-template-rows: repeat(var(--n), 1fr);
+  min-height: 0;
+  padding-right: 18px;
+}
+.app .lane {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding-left: 4%;
+  animation: lane-in 0.5s ease-out both;
+  animation-delay: calc(0.35s + var(--i) * 0.15s);
+}
+@keyframes lane-in {
+  from {
+    opacity: 0;
+    transform: translateX(-22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.app .lane-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.app .lane-head .num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a1030;
+  background: linear-gradient(90deg, #ffd166, #ff8fb8);
+}
+.app .lane-head .cnt {
+  font-size: 12px;
+  color: #a9a6d6;
+}
+.app .lane-stars {
+  display: flex;
+  align-items: flex-start;
+}
+.app .tstar {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  padding: 0 2px;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  animation: star-in 0.4s ease-out both;
+  animation-delay: calc(0.7s + var(--i) * 0.25s + var(--k) * 0.08s);
+}
+@keyframes star-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.app .tstar + .tstar::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -50%;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.16);
+}
+.app .tstar.prevlit::before {
+  background: #ffd166;
+  box-shadow: 0 0 8px rgba(255, 200, 80, 0.8);
+}
+.app .tdot {
+  position: relative;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  color: #1a1030;
+  background: #0b0d24;
+  border: 2px solid color-mix(in srgb, var(--c) 75%, transparent);
+  transition: transform 0.2s, border-color 0.2s;
+}
+.app .tstar:hover .tdot {
+  transform: scale(1.2);
+  border-color: #fff;
+}
+.app .tstar.lit .tdot {
+  background: radial-gradient(circle, #fff3c4, #ffc247);
+  border-color: #ffe29a;
+  box-shadow: 0 0 14px 4px rgba(255, 200, 80, 0.8);
+  animation: litpop 0.45s ease-out;
+}
+@keyframes litpop {
+  0% {
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.app .tstar.next .tdot {
+  border-color: #ff8fb8;
+  animation: nextpulse 1.4s ease-in-out infinite;
+}
+@keyframes nextpulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 143, 184, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 0 9px rgba(255, 143, 184, 0);
+  }
+}
+.app .tname {
+  font-size: 13px;
+  line-height: 1.25;
+  color: #e6e3ff;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding: 0 3px;
+}
+.app .tstar.lit .tname {
+  color: #ffe29a;
+}
+.app .f-note {
+  flex: none;
+  min-height: 48px;
+  padding: 12px 18px;
+  font-size: 13px;
+  color: #cfcdf0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(8, 9, 28, 0.7);
+}
+.app .f-note b {
+  color: #ffe29a;
+}
+@media (max-width: 760px) {
+  .app .f-main {
+    display: block;
+    overflow-y: auto;
+    padding-top: 44px;
+  }
+  .app .f-lines {
+    display: none;
+  }
+  .app .f-planet {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 14px;
+    text-align: left;
+    padding: 6px 14px 12px;
+    flex-wrap: wrap;
+  }
+  .app .f-ring {
+    width: 80px;
+    height: 80px;
+  }
+  .app .f-core {
+    font-size: 32px;
+  }
+  .app .f-planet h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+  .app .f-desc {
+    display: none;
+  }
+  .app .f-lanes {
+    display: block;
+    padding: 0 10px 14px;
+  }
+  .app .lane {
+    padding: 8px 4px 12px;
+  }
+  .app .lane-stars {
+    flex-wrap: wrap;
+    row-gap: 14px;
+  }
+  .app .tstar {
+    flex: 0 0 33.33%;
+  }
+  .app .tstar + .tstar::before {
+    display: none;
+  }
+}
+
+/* ---------- Extra sparkle: nebulae, shooting stars, welcome, effects ---------- */
+.app .react-flow__node-nebula {
+  pointer-events: none !important;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.app .nebula {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--c) 55%, transparent), transparent 78%);
+  opacity: var(--o, 0.25);
+  filter: blur(8px);
+  transition: opacity 0.8s;
+  animation: breathe 10s ease-in-out infinite alternate;
+}
+@keyframes breathe {
+  from {
+    transform: scale(0.96);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+.app .shooters {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+}
+.app .shooters i {
+  position: absolute;
+  width: 220px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.9) 85%, #fff);
+  box-shadow: 0 0 12px 2px rgba(255, 255, 255, 0.55);
+  opacity: 0;
+  transform: rotate(30deg);
+  animation: shoot 6s linear infinite;
+}
+.app .shooters i:nth-child(1) {
+  top: 6%;
+  left: 14%;
+  animation-delay: 1.2s;
+}
+.app .shooters i:nth-child(2) {
+  top: 18%;
+  left: 52%;
+  animation-delay: 3.6s;
+  animation-duration: 8s;
+}
+.app .shooters i:nth-child(3) {
+  top: 4%;
+  left: 74%;
+  animation-delay: 5.2s;
+  animation-duration: 7s;
+}
+@keyframes shoot {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(30deg);
+  }
+  3% {
+    opacity: 1;
+  }
+  16% {
+    opacity: 0;
+    transform: translate(520px, 300px) rotate(30deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(520px, 300px) rotate(30deg);
+  }
+}
+
+/* light travelling along the lines between subjects you have started */
+.app .edge-lit .react-flow__edge-path {
+  stroke-dasharray: 6 10;
+  animation: flow 1s linear infinite;
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+/* planets drift in one by one */
+.app .sky:not(.go) .planet {
+  opacity: 0;
+}
+.app .sky.go .planet {
+  animation: arrive 0.9s ease-out both;
+  animation-delay: calc(var(--d, 0) * 0.1s);
+}
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.app .planet.mastered::after {
+  content: "";
+  position: absolute;
+  left: 95px;
+  top: 95px;
+  width: 124px;
+  height: 124px;
+  margin: -62px 0 0 -62px;
+  border-radius: 50%;
+  border: 2px dotted rgba(255, 226, 154, 0.85);
+  pointer-events: none;
+  animation: spin 14s linear infinite;
+}
+
+/* animated title */
+.app .brand h1 {
+  background-image: linear-gradient(90deg, #ffe29a, #ff8fb8, #a78bfa, #ffe29a);
+  background-size: 300% 100%;
+  animation: shine 9s linear infinite;
+}
+@keyframes shine {
+  to {
+    background-position: -300% 0;
+  }
+}
+
+/* loading orbit */
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(var(--r, 40px));
+  }
+  to {
+    transform: rotate(360deg) translateX(var(--r, 40px));
+  }
+}
+.app .loader {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 14px;
+}
+.app .loader i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px;
+  border-radius: 50%;
+  background: #ffd166;
+  box-shadow: 0 0 10px #ffc247;
+  --r: 30px;
+  animation: orbit 1.8s linear infinite;
+}
+.app .loader i:nth-child(2) {
+  --r: 20px;
+  background: #ff8fb8;
+  box-shadow: 0 0 10px #ff8fb8;
+  animation-duration: 1.2s;
+}
+.app .loader i:nth-child(3) {
+  --r: 10px;
+  background: #4fd8c8;
+  box-shadow: 0 0 10px #4fd8c8;
+  animation-duration: 0.8s;
+}
+
+/* celebration sparkles */
+.app .confetti {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  z-index: 12;
+  pointer-events: none;
+}
+.app .confetti span {
+  position: absolute;
+  line-height: 1;
+  animation: fly 1.5s ease-out forwards;
+}
+@keyframes fly {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(0.4);
+  }
+  to {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(1.1);
+  }
+}
+
+/* search */
+.app .search {
+  position: relative;
+  min-width: 230px;
+}
+.app .search input {
+  width: 100%;
+}
+.app .s-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  margin: 4px 0 0;
+  padding: 4px;
+  list-style: none;
+  background: #14153a;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+}
+.app .s-list button {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  color: #f3f1ff;
+  font: inherit;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+.app .s-list button:hover {
+  background: rgba(255, 143, 184, 0.2);
+}
+.app .s-list small {
+  color: #a9a6d6;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.app .toolbar .hint {
+  color: #a9a6d6;
+}
+
+/* welcome screen */
+.app .welcome {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  background: rgba(5, 6, 22, 0.84);
+  backdrop-filter: blur(6px);
+  animation: fadein 0.5s ease-out both;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.app .w-card {
+  width: min(560px, 92%);
+  max-height: 94%;
+  overflow-y: auto;
+  padding: 26px 28px 22px;
+  text-align: center;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(160deg, rgba(44, 30, 120, 0.9), rgba(10, 10, 38, 0.95));
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  animation: grow 0.6s ease-out both;
+}
+.app .w-orbit {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 4px;
+}
+.app .w-orbit .w-core {
+  position: absolute;
+  inset: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  color: #ffd166;
+  background: #0b0d24;
+  border: 2px solid #ffd166;
+  box-shadow: 0 0 28px 6px rgba(255, 200, 80, 0.55);
+}
+.app .w-orbit i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin: -4px;
+  border-radius: 50%;
+  background: #ffd166;
+  box-shadow: 0 0 10px #ffc247;
+  animation: orbit 5s linear infinite;
+}
+.app .w-card h1 {
+  margin: 0;
+  font-size: 40px;
+  letter-spacing: 1px;
+  background-image: linear-gradient(90deg, #ffe29a, #ff8fb8, #a78bfa, #ffe29a);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 9s linear infinite;
+}
+.app .w-tag {
+  margin: 4px 0 14px;
+  color: #cfcdf0;
+}
+.app .w-steps {
+  text-align: left;
+  margin: 0 auto 16px;
+  padding: 0 0 0 22px;
+  max-width: 420px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #e6e3ff;
+}
+.app .w-steps li {
+  margin: 8px 0;
+}
+.app .w-steps b {
+  color: #ffe29a;
+}
+.app .w-note {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #a9a6d6;
+}
+
+@media (max-width: 700px) {
+  .app .search {
+    min-width: 100%;
+  }
+  .app .toolbar .hint {
+    display: none;
+  }
+}
+
+/* the Effects button turns every animation off */
+.app.fx-off,
+.app.fx-off *,
+.app.fx-off *::before,
+.app.fx-off *::after {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+}
+.app.fx-off .shooters {
+  display: none;
+}
+
+/* planet names stay on one line */
+.app .p-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 17px;
+}
