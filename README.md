@@ -79,4 +79,6 @@ Highlights:
 
 ## Screenshots
 
-<!-- Add screenshots here, for example: ![The sky](docs/sky.png) -->
+![The sky](docs/sky.png)
+![A subject split into three stages](docs/split.png)
+![Welcome screen](docs/welcome.png)
