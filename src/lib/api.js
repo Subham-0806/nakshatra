@@ -10,12 +10,8 @@ export const CONFIG = {
   databaseId: "6add7dfb0030ca0b1126",
   tables: {
     skills: "6add7e5400258f926c02",
-    skill_links: "6add7e7a0030e16581da",
-    jobs: "6add7e840010b95bb569",
-    job_skills: "6add7e8d003b60aa3f54",
     stages: "6add7e9b001541c01ce2",
     topics: "6add7ea4001905b75a84",
-    user_progress: "6add7f9d002ddd72ce52",
     topic_progress: "6add7fec00318a303273",
   },
 };
@@ -41,24 +37,10 @@ async function listAll(key) {
   return res.rows;
 }
 
-// Skills and links are required. Jobs and guides are optional, so the sky still loads without them.
+// The three tables that describe the learning sky
 export async function loadAll() {
-  const [skills, links] = await Promise.all([listAll("skills"), listAll("skill_links")]);
-  const optional = async (key) => {
-    try {
-      return await listAll(key);
-    } catch (e) {
-      console.warn(`Could not load "${key}":`, e.message);
-      return [];
-    }
-  };
-  const [jobs, jobSkills, stages, topics] = await Promise.all([
-    optional("jobs"),
-    optional("job_skills"),
-    optional("stages"),
-    optional("topics"),
-  ]);
-  return { skills, links, jobs, jobSkills, stages, topics };
+  const [skills, stages, topics] = await Promise.all([listAll("skills"), listAll("stages"), listAll("topics")]);
+  return { skills, stages, topics };
 }
 
 // Used by the #check page to show which tables work.
@@ -99,27 +81,22 @@ export async function logOut() {
   await account.deleteSession({ sessionId: "current" });
 }
 
-// ---------------- Private progress ----------------
+// ---------------- Private progress (one row per lit topic) ----------------
 export async function loadMyProgress() {
-  const [skillRows, topicRows] = await Promise.all([listAll("user_progress"), listAll("topic_progress")]);
-  return { skillRows, topicRows };
+  const topicRows = await listAll("topic_progress");
+  return { topicRows };
 }
 
-async function addRow(key, userId, data) {
+export async function saveTopic(userId, topicId) {
   return tablesDB.createRow({
     databaseId: CONFIG.databaseId,
-    tableId: tableId(key),
+    tableId: tableId("topic_progress"),
     rowId: ID.unique(),
-    data: { user_id: userId, ...data },
+    data: { user_id: userId, topic_id: topicId },
     permissions: [Permission.read(Role.user(userId)), Permission.delete(Role.user(userId))],
   });
 }
 
-async function deleteRow(key, rowId) {
-  await tablesDB.deleteRow({ databaseId: CONFIG.databaseId, tableId: tableId(key), rowId });
+export async function removeTopic(rowId) {
+  await tablesDB.deleteRow({ databaseId: CONFIG.databaseId, tableId: tableId("topic_progress"), rowId });
 }
-
-export const saveSkill = (userId, skillId) => addRow("user_progress", userId, { skill_id: skillId });
-export const removeSkill = (rowId) => deleteRow("user_progress", rowId);
-export const saveTopic = (userId, topicId) => addRow("topic_progress", userId, { topic_id: topicId });
-export const removeTopic = (rowId) => deleteRow("topic_progress", rowId);

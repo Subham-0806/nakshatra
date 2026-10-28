@@ -6,7 +6,7 @@ Nakshatra turns a computer science syllabus into a night sky. Every subject (Pyt
 
 Built solo for the **Appwrite Databases Hackathon (October 2026)** on **Appwrite TablesDB**.
 
-- 🔗 **Live demo:** [ADD YOUR LIVE LINK HERE]
+- 🔗 **Live demo:** https://nakshatra-pi.vercel.app
 - 🎥 **Demo video:** [ADD YOUR VIDEO LINK HERE]
 
 ## Why I built it
